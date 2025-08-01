@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Pricing Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-calculator"></i> SaaS Pricing Calculator</h1>
+            <p>Calculate optimal pricing for your SaaS product</p>
+        </header>
+
+        <main class="main-content">
+            <div class="calculator-grid">
+                <!-- Input Section -->
+                <div class="input-section">
+                    <h2>Business Parameters</h2>
+                    
+                    <div class="input-group">
+                        <label for="monthly-users">Monthly Active Users</label>
+                        <input type="number" id="monthly-users" value="1000" min="1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="conversion-rate">Conversion Rate (%)</label>
+                        <input type="number" id="conversion-rate" value="5" min="0.1" max="100" step="0.1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="churn-rate">Monthly Churn Rate (%)</label>
+                        <input type="number" id="churn-rate" value="3" min="0.1" max="100" step="0.1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="customer-acquisition-cost">Customer Acquisition Cost ($)</label>
+                        <input type="number" id="customer-acquisition-cost" value="50" min="1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="operational-costs">Monthly Operational Costs ($)</label>
+                        <input type="number" id="operational-costs" value="5000" min="1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="target-margin">Target Profit Margin (%)</label>
+                        <input type="number" id="target-margin" value="30" min="1" max="100">
+                    </div>
+
+                    <button id="calculate-btn" class="calculate-btn">
+                        <i class="fas fa-calculator"></i> Calculate Pricing
+                    </button>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section">
+                    <h2>Pricing Analysis</h2>
+                    
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Total Customers</h3>
+                                <p id="total-customers">0</p>
+                            </div>
+                        </div>
+
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Recommended Price</h3>
+                                <p id="recommended-price">$0</p>
+                            </div>
+                        </div>
+
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Monthly Revenue</h3>
+                                <p id="monthly-revenue">$0</p>
+                            </div>
+                        </div>
+
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Profit</h3>
+                                <p id="profit">$0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-tiers">
+                        <h3>Fixed Pricing Tiers</h3>
+                        <div class="tiers-grid">
+                            <div class="tier-card basic">
+                                <h4>Basic</h4>
+                                <div class="price" id="basic-price">$0</div>
+                                <ul>
+                                    <li>Core features</li>
+                                    <li>Email support</li>
+                                    <li>Basic analytics</li>
+                                </ul>
+                            </div>
+                            <div class="tier-card pro">
+                                <h4>Pro</h4>
+                                <div class="price" id="pro-price">$0</div>
+                                <ul>
+                                    <li>All Basic features</li>
+                                    <li>Priority support</li>
+                                    <li>Advanced analytics</li>
+                                    <li>API access</li>
+                                </ul>
+                            </div>
+                            <div class="tier-card enterprise">
+                                <h4>Enterprise</h4>
+                                <div class="price" id="enterprise-price">$0</div>
+                                <ul>
+                                    <li>All Pro features</li>
+                                    <li>Dedicated support</li>
+                                    <li>Custom integrations</li>
+                                    <li>SLA guarantee</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insights Section -->
+            <div class="insights-section">
+                <h2>Pricing Insights</h2>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <h3><i class="fas fa-lightbulb"></i> Key Metrics</h3>
+                        <div class="metric">
+                            <span>Customer Lifetime Value:</span>
+                            <span id="clv">$0</span>
+                        </div>
+                        <div class="metric">
+                            <span>Payback Period:</span>
+                            <span id="payback-period">0 months</span>
+                        </div>
+                        <div class="metric">
+                            <span>Revenue per User:</span>
+                            <span id="revenue-per-user">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="insight-card">
+                        <h3><i class="fas fa-chart-pie"></i> Revenue Breakdown</h3>
+                        <div class="metric">
+                            <span>Gross Revenue:</span>
+                            <span id="gross-revenue">$0</span>
+                        </div>
+                        <div class="metric">
+                            <span>Customer Acquisition:</span>
+                            <span id="acquisition-costs">$0</span>
+                        </div>
+                        <div class="metric">
+                            <span>Operational Costs:</span>
+                            <span id="operational-costs-display">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 SaaS Pricing Calculator. Built with ❤️ for entrepreneurs.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
